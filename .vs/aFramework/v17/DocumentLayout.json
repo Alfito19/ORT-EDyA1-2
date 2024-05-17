@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\ColaPrioridadInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:ColaPrioridadInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PilaIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:PilaIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PilaInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:PilaInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,20 +22,39 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ColaPrioridadInt.h",
-              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\ColaPrioridadInt.h",
-              "RelativeDocumentMoniker": "ColaPrioridadInt.h",
-              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\ColaPrioridadInt.h",
-              "RelativeToolTip": "ColaPrioridadInt.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
+              "DocumentIndex": 1,
+              "Title": "PilaInt.h",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PilaInt.h",
+              "RelativeDocumentMoniker": "PilaInt.h",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PilaInt.h",
+              "RelativeToolTip": "PilaInt.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-17T02:12:13.73Z",
+              "WhenOpened": "2024-05-17T02:15:11.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 139,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PilaIntImp.cpp",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PilaIntImp.cpp",
+              "RelativeDocumentMoniker": "PilaIntImp.cpp",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PilaIntImp.cpp",
+              "RelativeToolTip": "PilaIntImp.cpp",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-17T02:15:08.398Z",
+              "EditorCaption": ""
             }
           ]
         }

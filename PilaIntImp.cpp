@@ -21,10 +21,12 @@ void push(PilaInt& p, int e) {
 }
 
 int top(PilaInt p) {
+	assert(!esVacia(p));
 	return p->dato;
 }
 
 void pop(PilaInt& p) {
+	assert(!esVacia(p));
 	_cabezalPilaInt* aBorrar = p;
 	p = p->sig;
 	delete aBorrar;
