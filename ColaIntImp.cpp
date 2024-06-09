@@ -1,77 +1,75 @@
 #include "ColaInt.h"
+#include "Definiciones.h"
 
 #ifdef COLA_INT_IMP
 
 struct _cabezalColaInt {
-	unsigned int dato;
-	_cabezalColaInt* sig;
+	NodoListaInt * primero;
+	NodoListaInt * ultimo;
+	int cantidad;
 };
 
 ColaInt crearColaInt() {
-	_cabezalColaInt* res = NULL;
+	_cabezalColaInt* res = new _cabezalColaInt;
+	res->primero = res->ultimo = NULL;
+	res->cantidad = 0;
 	return res;
 }
 
 void encolar(ColaInt& c, int e) {
-	_cabezalColaInt* nuevo = new _cabezalColaInt;
-	if (c == NULL) {
-		nuevo->dato = e;
-		nuevo->sig = NULL;
-		c = nuevo;
+	NodoListaInt* nuevo = new NodoListaInt;
+	nuevo->dato = e;
+	nuevo->sig = NULL;
+	if (c->primero == NULL) {
+		c->primero = nuevo;
 	}
 	else {
-		_cabezalColaInt* aux = c;
-		while (aux->sig != NULL) {
-			aux = aux->sig;
-		}
-		aux->sig = nuevo;
-		nuevo->dato = e;
-		nuevo->sig = NULL;
+		c->ultimo->sig = nuevo;
 	}
+	c->cantidad++;
+	c->ultimo = nuevo;
 }
 
 int principio(ColaInt c) {
 	assert(!esVacia(c));
-	return c->dato;
+	return c->primero->dato;
 }
 
 void desencolar(ColaInt& c) {
 	assert(!esVacia(c));
-	_cabezalColaInt* aBorrar = c;
-	c = c->sig;
+	NodoListaInt* aBorrar = c->primero;
+	c->primero = c->primero->sig;
 	delete aBorrar;
 	aBorrar = NULL;
 }
 
 bool esVacia(ColaInt c) {	
-	return c == NULL;
+	return c->primero == NULL;
 }
 
 unsigned int cantidadElementos(ColaInt c) {
-	int count = 0;
-	while (c != NULL) {
-		count++; 
-		c = c->sig;
-	}
-	return count;
+	return c->cantidad;
 }
 
 ColaInt clon(ColaInt c) {
-	_cabezalColaInt* res = NULL;
-	while (c != NULL) {
-		encolar(res, c->dato);
-		c = c->sig;
+	_cabezalColaInt* res = crearColaInt();
+	NodoListaInt* iter = c->primero;
+	while (iter != NULL) {
+		encolar(res, iter->dato);
+		iter = iter->sig;
 	}
 	return res;
 }
 
 void destruir(ColaInt& c) {
-	while (c != NULL) {
-		_cabezalColaInt* aBorrar = c;
-		c = c->sig;
+	while (c->primero != NULL) {
+		NodoListaInt* aBorrar = c->primero;
+		c->primero = c->primero->sig;
 		delete aBorrar;
 		aBorrar = NULL;
 	}
+	delete c;
+	c = NULL;
 }
 
 #endif

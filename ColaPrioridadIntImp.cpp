@@ -1,57 +1,102 @@
 #include "ColaPrioridadInt.h"
+#include "Definiciones.h"
 
 #ifdef COLAPRIORIDAD_INT_IMP
 
 struct _cabezalColaPrioridadInt {
-	// NO IMPLEMENTADO
+	int cota;
+	int cantidad;
+	NodoListaIntDobleDato* primero;
+	NodoListaIntDobleDato* ultimo;
 };
 
-
 ColaPrioridadInt crearColaPrioridadInt(unsigned int cota) {
-	// NO IMPLEMENTADO
-	return NULL;
+	_cabezalColaPrioridadInt* res = new _cabezalColaPrioridadInt;
+	res->primero = res->ultimo = NULL;
+	res->cota = cota;
+	res->cantidad = 0;
+	return res;
 }
 
 void encolar(ColaPrioridadInt& c, int e, int p) {
-	// NO IMPLEMENTADO
+	assert(!esLlena(c));
+	NodoListaIntDobleDato* nuevo = new NodoListaIntDobleDato;
+	nuevo->dato1 = e;
+	nuevo->dato2 = p;
+	nuevo->sig = NULL;
+	if (c->primero == NULL) {
+		c->primero = nuevo;
+	}
+	else {
+		NodoListaIntDobleDato* iter = c->primero;
+		while (iter->dato2 >= p) {
+			if (iter->dato2 == p) {
+				while (iter->dato2 == p) {
+					iter = iter->sig;
+				}
+				nuevo->sig = iter->sig;
+				iter->sig = nuevo;
+			}
+			else {
+				iter = iter->sig;
+			}
+		}
+		nuevo->sig = iter->sig;
+		iter->sig = nuevo;
+	}
+	c->cantidad++;
 }
 
 int principio(ColaPrioridadInt c) {
-	// NO IMPLEMENTADO
-	return 0;
+	assert(!esVacia(c));
+	return c->primero->dato1;
 }
 
 int principioPrioridad(ColaPrioridadInt c) {
-	// NO IMPLEMENTADO
-	return 0;
+	assert(!esVacia(c));
+	return c->primero->dato2;
 }
 
 void desencolar(ColaPrioridadInt& c) {
-	// NO IMPLEMENTADO
+	assert(!esVacia(c));
+	NodoListaIntDobleDato* aBorrar = c->primero;
+	c->primero = c->primero->sig;
+	delete aBorrar;
+	aBorrar = NULL;
+	c->cantidad--;
 }
 
 bool esVacia(ColaPrioridadInt c) {
-	// NO IMPLEMENTADO
-	return true;
+	return c->primero == NULL;
 }
 
 bool esLlena(ColaPrioridadInt c) {
-	// NO IMPLEMENTADO
-	return false;
+	return cantidadElementos(c) == c->cota;
 }
 
 unsigned int cantidadElementos(ColaPrioridadInt c) {
-	// NO IMPLEMENTADO
-	return 0;
+	return c->cantidad;
 }
 
 ColaPrioridadInt clon(ColaPrioridadInt c) {
-	// NO IMPLEMENTADO
-	return NULL;
+	_cabezalColaPrioridadInt* res = crearColaPrioridadInt(c->cota);
+	NodoListaIntDobleDato* iter = c->primero;
+	while (iter != NULL) {
+		encolar(res, iter->dato1, iter->dato2);
+		iter = iter->sig;
+	}
+	return res;
 }
 
 void destruir(ColaPrioridadInt& c) {
-	// NO IMPLEMENTADO
+	while (c != NULL) {
+		NodoListaIntDobleDato* aBorrar = c->primero;
+		c->primero = c->primero->sig;
+		delete aBorrar;
+		aBorrar = NULL;
+	}
+	delete c;
+	c = NULL;
 }
 
 #endif

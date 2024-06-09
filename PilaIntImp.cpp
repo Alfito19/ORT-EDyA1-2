@@ -1,69 +1,69 @@
 #include "PilaInt.h"
+#include "Definiciones.h"
 
 #ifdef PILA_INT_IMP
 
 struct _cabezalPilaInt {
-	unsigned int dato;
-	_cabezalPilaInt* sig;
+	unsigned int cantidad;
+	NodoListaInt * pila;
 };
 
-
 PilaInt crearPilaInt(){
-	_cabezalPilaInt* res = NULL;
-	return res;
+	_cabezalPilaInt* nuevaPila = new _cabezalPilaInt;
+	nuevaPila->cantidad = 0;
+	nuevaPila->pila = NULL;
+	return nuevaPila;
 }
 
 void push(PilaInt& p, int e) {
-	_cabezalPilaInt* nuevo = new _cabezalPilaInt;
+	NodoListaInt* nuevo = new NodoListaInt;
 	nuevo->dato = e;
-	nuevo->sig = p;
-	p = nuevo;
+	nuevo->sig = p->pila;
+	p->pila = nuevo;
+	p->cantidad++;
 }
 
 int top(PilaInt p) {
 	assert(!esVacia(p));
-	return p->dato;
+	return p->pila->dato;
 }
 
 void pop(PilaInt& p) {
 	assert(!esVacia(p));
-	_cabezalPilaInt* aBorrar = p;
-	p = p->sig;
+	NodoListaInt* aBorrar = p->pila;
+	p->pila = p->pila->sig;
 	delete aBorrar;
 	aBorrar = NULL;
 }
 
 unsigned int cantidadElementos(PilaInt p) {
-	int count = 0;
-	while (p != NULL) {
-		count++;
-		p = p->sig;
-	}
-	return count;
+	return p->cantidad;
 }
 
 bool esVacia(PilaInt p) {
-	return p == NULL;
+	return p->cantidad == 0;
 }
 
 PilaInt clon(PilaInt p) {
-	_cabezalPilaInt* res = NULL;
-	_cabezalPilaInt* ultimo = res;
-	while (p != NULL) {
-		push(ultimo, p->dato);
-		ultimo = ultimo->sig;
-		p = p->sig;
+	PilaInt clon = crearPilaInt();
+	int elementos = p->cantidad;
+	while (elementos > 0) {
+		push(clon, p->pila->dato);
+		elementos--;
+		p->pila = p->pila->sig;
 	}
-	return res;
+	return clon;
 }
 
 void destruir(PilaInt& p) {
-	while (p != NULL) {
-		_cabezalPilaInt* aBorrar = p;
-		p = p->sig;
+	while (p->pila != NULL) {
+		NodoListaInt* aBorrar = p->pila;
+		p->pila = p->pila->sig;
 		delete aBorrar;
 		aBorrar = NULL;
 	}
+	delete p;
+	p = NULL;
 }
 
 
