@@ -60,6 +60,7 @@ bool pertenece(SetInt s, int e) {
 		if (s->elemento->dato == e) {
 			return true;
 		}
+		s->elemento = s->elemento->sig;
 	}
 	return false;
 }
