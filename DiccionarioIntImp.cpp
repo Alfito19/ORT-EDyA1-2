@@ -4,127 +4,84 @@
 
 struct _cabezalDiccionarioInt {
 	int cantidad;
-	NodoABInt* elem;
+	NodoListaInt** hashArray;
+	int esperados;
 };
 
 DiccionarioInt crearDiccionarioInt(unsigned int esperados) {
 	_cabezalDiccionarioInt* res = new _cabezalDiccionarioInt;
+	res->hashArray = new NodoListaInt*[esperados];
 	res->cantidad = 0;
-	res->elem = NULL;
+	res->esperados = esperados;
+	for (int i = 0; i < esperados; i++) {
+		res->hashArray[i] = NULL;
+	}
 	return res;
 }
 
-void agregar(DiccionarioInt& d, int e) {
-	if (d->elem != NULL) {
-		agregarABB(d->elem, e, d);
-	}
-	else{
-		NodoABInt* nuevo = new NodoABInt;
-		nuevo->dato = e;
-		nuevo->izq = nuevo->der = NULL;
-		d->elem = nuevo;
-		d->cantidad++;
-	}
+//PRE: --
+//POS: devuelve la posicion del hash a ingresar en el array
+int hashFunction(int e, int esperados) {
+	int retorno = e % esperados;
+	return abs(retorno);
 }
 
-// PRE: -
-// POS: agrega el elemento e en el ABB
-void agregarABB(NodoABInt*& abb, int e, DiccionarioInt& d) {
-	if (abb == NULL) {
-		NodoABInt* nuevo = new NodoABInt;
-		nuevo->dato = e;
-		nuevo->izq = nuevo->der = NULL;
+void agregar(DiccionarioInt& d, int e) {
+	int pos = hashFunction(e, d->esperados);
+	if(!(pertenece(d,e))){
+		if (d->hashArray[pos] == NULL) {
+			NodoListaInt* nuevo = new NodoListaInt;
+			nuevo->dato = e;
+			nuevo->sig = NULL;
+			d->hashArray[pos] = nuevo;
+		}
+		else{
+			NodoListaInt* iter = d->hashArray[pos];
+			while (iter != NULL) {
+				iter = iter->sig;
+			}
+			NodoListaInt* nuevo = new NodoListaInt;
+			nuevo->dato = e;
+			nuevo->sig = NULL;
+			iter->sig = nuevo;
+		}
 		d->cantidad++;
-	}
-	else if (e < abb->dato) {
-		agregarABB(abb->izq, e, d);
-	}
-	else if (e > abb->dato) {
-		agregarABB(abb->der, e, d);
 	}
 }
 
 void borrar(DiccionarioInt& d, int e) {
-	if (d->elem != NULL) {
-		borrarABB(d->elem, e, d);
-	}
-}
-
-// PRE: -
-// POS: borra el elemento del diccionario
-//        Si no encuentra no tiene efecto
-void borrarABB(NodoABInt* abb, int e, DiccionarioInt& d) {
-	if(abb != NULL){
-		if (e < abb->dato) {
-			borrarABB(abb->izq, e, d);
-		}
-		else if (e > abb->dato) {
-			borrarABB(abb->der, e, d);
+	int pos = hashFunction(e, d->esperados);
+	if (d->hashArray[pos] != NULL) {
+		NodoListaInt* aBorrar = NULL;
+		NodoListaInt* iter = d->hashArray[pos];
+		if (d->hashArray[pos]->dato == e) {
+			aBorrar = d->hashArray[pos];
+			d->hashArray[pos] = d->hashArray[pos]->sig;
 		}
 		else{
-			if (abb->der == NULL) {
-				NodoABInt* aBorrar = abb;
-				abb = abb->izq;
-				delete aBorrar;
-				aBorrar = NULL;
-				d->cantidad--;
-			}
-			else if (abb->izq == NULL) {
-				NodoABInt* aBorrar = abb;
-				abb = abb->der;
-				delete aBorrar;
-				aBorrar = NULL;
-				d->cantidad--;
-			}
-			else {
-				NodoABInt* aBorrar = abb;
-				NodoABInt* derecha = abb->der;
-				abb = abb->izq;
-				NodoABInt* iter = abb;
-				while (iter->der != NULL) {
-					iter = iter->der;
+			while (iter->sig != NULL) {
+				if (iter->sig->dato == e) {
+					aBorrar = iter->sig;
+					iter->sig = iter->sig->sig;
 				}
-				iter->der = derecha;
-				delete aBorrar;
-				aBorrar = NULL;
-				d->cantidad--;
 			}
 		}
+		delete aBorrar;
+		aBorrar = NULL;
 	}
 }
 
 bool pertenece(DiccionarioInt d, int e) {
 	bool res = false;
-	if (d != NULL) {
-		if (e == d->elem->dato) {
-			res = true;
-		}
-		else {
-			if (d->elem->dato > e) {
-				res = perteneceABB(d->elem->izq, e);
+	int pos = hashFunction(e, d->esperados);
+	if (d->hashArray[pos] != NULL) {
+		NodoListaInt* iter = d->hashArray[pos];
+		while (iter != NULL) {
+			if (d->hashArray[pos]->dato == e) {
+				return true;
 			}
-			else {
-				res = perteneceABB(d->elem->der, e);
-			}
-		}
-	}
-	return res;
-}
-
-// PRE: -
-// POS: retorna true si el elemento e se encuentra en el ABB
-bool perteneceABB(NodoABInt* abb, int e) {
-	bool res = false;
-	if (abb != NULL) {
-		if (e == abb->dato) {
-			res = true;
-		}
-		else {
-			if (abb->dato > e) {
-				res = perteneceABB(abb->izq, e);
-			}
-			else {
-				res = perteneceABB(abb->der, e);
+			else{
+				iter = iter->sig;
 			}
 		}
 	}
@@ -132,7 +89,12 @@ bool perteneceABB(NodoABInt* abb, int e) {
 }
 
 int elemento(DiccionarioInt d) {
-	return d->elem->dato;
+	assert(!esVacio(d));
+	for (int i = 0; i < d->esperados; i++) {
+		if (d->hashArray[i] != NULL) {
+			return d->hashArray[i]->dato
+		}
+	}
 }
 
 bool esVacio(DiccionarioInt d) {
@@ -144,45 +106,29 @@ unsigned int cantidadElementos(DiccionarioInt d) {
 }
 
 DiccionarioInt clon(DiccionarioInt d) {
-	_cabezalDiccionarioInt* res = crearDiccionarioInt(0);
-	res->cantidad = 0;
-	res->elem = clonABB(d->elem, res);
+	_cabezalDiccionarioInt* res = crearDiccionarioInt(d->esperados);
+	for (int i = 0; i < d->esperados; i++) {
+		NodoListaInt* iter = d->hashArray[i];
+		while (iter != NULL){
+			agregar(res, iter->dato);
+			iter = iter->sig;
+		}
+	}
 	return NULL;
 }
 
-// PRE: -
-// POS: retorna una copia del ABB sin compartir memoria
-NodoABInt* clonABB(NodoABInt*& abb, DiccionarioInt clon) {
-	if(abb->izq != NULL && abb->der != NULL){
-		clonABB(abb->der, clon);
-		clonABB(abb->izq, clon);
-	}
-	else if(abb->izq != NULL && abb->der == NULL){
-		clonABB(abb->izq, clon);
-	}
-	else if (abb->izq == NULL && abb->der != NULL) {
-		clonABB(abb->der, clon);
-	}
-	agregarABB(abb, abb->dato, clon);
-}
-
 void destruir(DiccionarioInt& d) {
-	if (d->elem != NULL) {
-		borrarTodoABB(d->elem);
+	for (int i = 0; i < d->esperados; i++) {
+		while (d->hashArray[i] != NULL) {
+			NodoListaInt* aBorrar = d->hashArray[i];
+			d->hashArray[i] = d->hashArray[i]->sig;
+			delete aBorrar;
+			aBorrar = NULL;
+		}
 	}
 	delete d;
 	d = NULL;
 }
 
-// PRE: -
-// POS: borra todo el ABB
-void borrarTodoABB(NodoABInt*& e) {
-	if (e != NULL) {
-		borrarTodoABB(e->der);
-		borrarTodoABB(e->izq);
-	}
-	delete e;
-	e = NULL;
-}
 
 #endif

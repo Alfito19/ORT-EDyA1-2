@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\MultisetIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:MultisetIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\SetIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:SetIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\MultisetInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:MultisetInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:DiccionarioInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MultisetIntImp.cpp",
-              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\MultisetIntImp.cpp",
-              "RelativeDocumentMoniker": "MultisetIntImp.cpp",
-              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\MultisetIntImp.cpp",
-              "RelativeToolTip": "MultisetIntImp.cpp",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAF4AAAAkAAAA",
+              "Title": "DiccionarioIntImp.cpp",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
+              "RelativeDocumentMoniker": "DiccionarioIntImp.cpp",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
+              "RelativeToolTip": "DiccionarioIntImp.cpp",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAH8AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-10T23:29:59.344Z",
+              "WhenOpened": "2024-06-12T14:18:20.883Z",
               "EditorCaption": ""
             }
           ]
@@ -46,27 +42,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SetIntImp.cpp",
-              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\SetIntImp.cpp",
-              "RelativeDocumentMoniker": "SetIntImp.cpp",
-              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\SetIntImp.cpp",
-              "RelativeToolTip": "SetIntImp.cpp",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAAAJsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-10T23:31:07.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MultisetInt.h",
-              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\MultisetInt.h",
-              "RelativeDocumentMoniker": "MultisetInt.h",
-              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\MultisetInt.h",
-              "RelativeToolTip": "MultisetInt.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Title": "DiccionarioInt.h",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioInt.h",
+              "RelativeDocumentMoniker": "DiccionarioInt.h",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioInt.h",
+              "RelativeToolTip": "DiccionarioInt.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-10T23:30:01.648Z",
+              "WhenOpened": "2024-06-12T14:52:45.93Z",
               "EditorCaption": ""
             },
             {
