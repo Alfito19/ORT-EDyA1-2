@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:DiccionarioInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,33 +27,46 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DiccionarioIntImp.cpp",
-              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
-              "RelativeDocumentMoniker": "DiccionarioIntImp.cpp",
-              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
-              "RelativeToolTip": "DiccionarioIntImp.cpp",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAH8AAAACAAAA",
+              "Title": "TablaIntIntImp.cpp",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp",
+              "RelativeDocumentMoniker": "TablaIntIntImp.cpp",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp",
+              "RelativeToolTip": "TablaIntIntImp.cpp",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAADQAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-12T14:18:20.883Z",
+              "WhenOpened": "2024-06-17T13:35:24.151Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 135,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DiccionarioIntImp.cpp",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
+              "RelativeDocumentMoniker": "DiccionarioIntImp.cpp",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
+              "RelativeToolTip": "DiccionarioIntImp.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-17T13:35:52.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DiccionarioInt.h",
-              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioInt.h",
-              "RelativeDocumentMoniker": "DiccionarioInt.h",
-              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioInt.h",
-              "RelativeToolTip": "DiccionarioInt.h",
+              "Title": "TablaIntInt.h",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntInt.h",
+              "RelativeDocumentMoniker": "TablaIntInt.h",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntInt.h",
+              "RelativeToolTip": "TablaIntInt.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-12T14:52:45.93Z",
+              "WhenOpened": "2024-06-17T13:35:31.301Z",
               "EditorCaption": ""
             },
             {
