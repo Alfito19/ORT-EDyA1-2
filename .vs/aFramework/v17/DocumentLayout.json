@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntStringImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\Ejercicios.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:Ejercicios.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PruebasEjemploDeUsoEntrega.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:PruebasEjemploDeUsoEntrega.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\Ejercicios.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:Ejercicios.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -48,20 +60,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TablaIntIntImp.cpp",
               "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp",
               "RelativeDocumentMoniker": "TablaIntIntImp.cpp",
               "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp",
               "RelativeToolTip": "TablaIntIntImp.cpp",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAE8AAAAgAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACYAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-18T01:23:01.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "Ejercicios.cpp",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\Ejercicios.cpp",
+              "RelativeDocumentMoniker": "Ejercicios.cpp",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\Ejercicios.cpp",
+              "RelativeToolTip": "Ejercicios.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-18T14:09:01.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "DiccionarioIntImp.cpp",
               "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
               "RelativeDocumentMoniker": "DiccionarioIntImp.cpp",
@@ -69,15 +94,27 @@
               "RelativeToolTip": "DiccionarioIntImp.cpp",
               "ViewState": "AQIAADwAAAAAAAAAAAAAAF0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-18T01:43:22.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T01:43:22.128Z"
             }
           ]
         },
         {
           "DockedWidth": 560,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ejercicios.txt",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\Ejercicios.txt",
+              "RelativeDocumentMoniker": "Ejercicios.txt",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\Ejercicios.txt",
+              "RelativeToolTip": "Ejercicios.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-06-18T14:09:11.619Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -86,7 +123,7 @@
               "RelativeDocumentMoniker": "TablaIntStringImp.cpp",
               "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntStringImp.cpp",
               "RelativeToolTip": "TablaIntStringImp.cpp",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAUwBMAAAAAAAAA",
+              "ViewState": "AQIAADkAAAAAAAAAAAAEwEYAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-18T01:22:40.954Z",
               "EditorCaption": ""
@@ -95,11 +132,11 @@
         },
         {
           "DockedWidth": 343,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "TablaIntString.h",
               "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntString.h",
               "RelativeDocumentMoniker": "TablaIntString.h",
@@ -108,6 +145,19 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-06-18T01:22:43.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PruebasEjemploDeUsoEntrega.cpp",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PruebasEjemploDeUsoEntrega.cpp",
+              "RelativeDocumentMoniker": "PruebasEjemploDeUsoEntrega.cpp",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\PruebasEjemploDeUsoEntrega.cpp",
+              "RelativeToolTip": "PruebasEjemploDeUsoEntrega.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-18T14:49:16.734Z",
               "EditorCaption": ""
             }
           ]

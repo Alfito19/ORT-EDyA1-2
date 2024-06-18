@@ -18,7 +18,7 @@ struct _cabezalTablaIntString {
 
 TablaIntString crearTablaIntString(unsigned int esperados) {
 	_cabezalTablaIntString* res = new _cabezalTablaIntString;
-	res->hashArray = new NodoListaIntString * [esperados];
+	res->hashArray = new NodoListaIntString* [esperados];
 	res->cantidad = 0;
 	res->esperados = esperados;
 	for (unsigned int i = 0; i < esperados; i++) {
@@ -43,8 +43,8 @@ void agregar(TablaIntString& t, int d, const char* r) {
 		NodoListaIntString* nuevo = new NodoListaIntString;
 		nuevo->dato1 = d;
 		nuevo->dato2 = r;
-		nuevo->sig = iter;
-		iter = nuevo;
+		nuevo->sig = t->hashArray[pos];
+		t->hashArray[pos] = nuevo;
 		t->cantidad++;
 	}
 	else iter->dato2 = r;
@@ -52,9 +52,10 @@ void agregar(TablaIntString& t, int d, const char* r) {
 
 bool estaDefinida(TablaIntString t, int d) {
 	int pos = hashFunctionTablaString(d, t->esperados);
-	while (t->hashArray[pos] != NULL && t->hashArray[pos]->dato1 != d)
-		t->hashArray[pos] = t->hashArray[pos]->sig;
-	return t->hashArray[pos] != NULL;
+	NodoListaIntString* iter = t->hashArray[pos];
+	while (iter != NULL && iter->dato1 != d)
+		iter = iter->sig;
+	return iter != NULL;
 }
 
 const char* recuperar(TablaIntString t, int d) {
@@ -76,6 +77,7 @@ void borrar(TablaIntString& t, int d) {
 		iter = iter->sig;
 		delete aBorrar;
 		aBorrar = NULL;
+		t->cantidad--;
 	}
 }
 

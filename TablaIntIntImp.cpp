@@ -35,8 +35,8 @@ void agregar(TablaIntInt& t, int d, int r) {
 		NodoListaIntDobleDato* nuevo = new NodoListaIntDobleDato;
 		nuevo->dato1 = d;
 		nuevo->dato2 = r;
-		nuevo->sig = iter;
-		iter = nuevo;
+		nuevo->sig = t->hashArray[pos];
+		t->hashArray[pos] = nuevo;
 		t->cantidad++;
 	}
 	else iter->dato2 = r;

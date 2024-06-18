@@ -366,3 +366,9 @@ Diccionario luego de borrar 3 elementos: (-5,-1,4,7,15)
 -!-92::0-?-?-Libero memoria
 -!-Fin::PRUEBAS Diccionario
 -!-Ini::PRUEBAS TablaIntString
+Largo de la tabla: 5
+
+-!-93::0-?-?-Imprimio largo luego de agregar 5 elementos
+Largo del clon: 5
+
+-!-94::0-?-?-Imprimio largo del clon luego de clonar la tabla
