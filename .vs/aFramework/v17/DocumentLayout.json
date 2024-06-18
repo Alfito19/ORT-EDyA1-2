@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntStringImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntStringImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:DiccionarioIntImp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntString.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18640DB1-7DDC-41D4-94DE-010CF88C0BA7}|aFramework.vcxproj|solutionrelative:TablaIntString.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,28 +25,40 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 143,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 153,
+          "SelectedChildIndex": -1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 318,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TablaIntIntImp.cpp",
               "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp",
               "RelativeDocumentMoniker": "TablaIntIntImp.cpp",
               "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntIntImp.cpp",
               "RelativeToolTip": "TablaIntIntImp.cpp",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAADQAAAAUAAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAE8AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-17T13:35:24.151Z",
+              "WhenOpened": "2024-06-18T01:23:01.833Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 135,
-          "SelectedChildIndex": 1,
-          "Children": [
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -51,27 +67,48 @@
               "RelativeDocumentMoniker": "DiccionarioIntImp.cpp",
               "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\DiccionarioIntImp.cpp",
               "RelativeToolTip": "DiccionarioIntImp.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAABAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAF0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-17T13:35:52.607Z",
+              "WhenOpened": "2024-06-18T01:43:22.128Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 560,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TablaIntInt.h",
-              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntInt.h",
-              "RelativeDocumentMoniker": "TablaIntInt.h",
-              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntInt.h",
-              "RelativeToolTip": "TablaIntInt.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-17T13:35:31.301Z",
+              "DocumentIndex": 0,
+              "Title": "TablaIntStringImp.cpp",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntStringImp.cpp",
+              "RelativeDocumentMoniker": "TablaIntStringImp.cpp",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntStringImp.cpp",
+              "RelativeToolTip": "TablaIntStringImp.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAUwBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-18T01:22:40.954Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 343,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TablaIntString.h",
+              "DocumentMoniker": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntString.h",
+              "RelativeDocumentMoniker": "TablaIntString.h",
+              "ToolTip": "C:\\Users\\alfos\\OneDrive\\Documents\\GitHub\\ORT-EDyA1-2\\TablaIntString.h",
+              "RelativeToolTip": "TablaIntString.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-18T01:22:43.318Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -8,7 +8,7 @@ struct _cabezalPilaInt {
 	NodoListaInt * pila;
 };
 
-PilaInt crearPilaInt(){
+_cabezalPilaInt* crearPilaInt(){
 	_cabezalPilaInt* nuevaPila = new _cabezalPilaInt;
 	nuevaPila->cantidad = 0;
 	nuevaPila->pila = NULL;
@@ -34,6 +34,7 @@ void pop(PilaInt& p) {
 	p->pila = p->pila->sig;
 	delete aBorrar;
 	aBorrar = NULL;
+	p->cantidad--;
 }
 
 unsigned int cantidadElementos(PilaInt p) {
@@ -45,14 +46,13 @@ bool esVacia(PilaInt p) {
 }
 
 PilaInt clon(PilaInt p) {
-	PilaInt clon = crearPilaInt();
-	int elementos = p->cantidad;
-	while (elementos > 0) {
-		push(clon, p->pila->dato);
-		elementos--;
-		p->pila = p->pila->sig;
+	_cabezalPilaInt* clonPila = crearPilaInt();
+	NodoListaInt* iter = p->pila;
+	for(int i = 0; i < p->cantidad;i++){
+		push(clonPila, iter->dato);
+		iter = iter->sig;
 	}
-	return clon;
+	return clonPila;
 }
 
 void destruir(PilaInt& p) {

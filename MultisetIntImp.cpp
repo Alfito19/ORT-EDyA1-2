@@ -27,7 +27,7 @@ void agregar(MultisetInt& s, int e, unsigned int ocurrencias){
 	}
 	else {
 		NodoListaIntDobleDato* iter = s->elemento;
-		while (!yaIngresado && (iter->dato1 > e || iter->sig != NULL)) {
+		while (!yaIngresado && iter->sig != NULL && iter->dato1 >= e) {
 			if (iter->dato1 == e) {
 				iter->dato2 += ocurrencias; // no me queda claro si le suma las ocurrencias, las reemplaza o suma uno
 				yaIngresado = true;
@@ -45,7 +45,7 @@ void agregar(MultisetInt& s, int e, unsigned int ocurrencias){
 
 void borrar(MultisetInt& s, int e) {
 	NodoListaIntDobleDato* iter = s->elemento;
-	while (iter->dato1 > e || iter->sig != NULL) {
+	while (iter != NULL && iter->dato1 >= e) {
 		if (iter->dato1 == e) {
 			NodoListaIntDobleDato* aBorrar = iter;
 			iter = iter->sig;

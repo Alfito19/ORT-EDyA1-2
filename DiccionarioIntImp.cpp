@@ -5,7 +5,7 @@
 struct _cabezalDiccionarioInt {
 	int cantidad;
 	NodoListaInt** hashArray;
-	int esperados;
+	unsigned int esperados;
 };
 
 DiccionarioInt crearDiccionarioInt(unsigned int esperados) {
@@ -13,7 +13,7 @@ DiccionarioInt crearDiccionarioInt(unsigned int esperados) {
 	res->hashArray = new NodoListaInt*[esperados];
 	res->cantidad = 0;
 	res->esperados = esperados;
-	for (int i = 0; i < esperados; i++) {
+	for (unsigned int i = 0; i < esperados; i++) {
 		res->hashArray[i] = NULL;
 	}
 	return res;
@@ -21,13 +21,13 @@ DiccionarioInt crearDiccionarioInt(unsigned int esperados) {
 
 //PRE: --
 //POS: devuelve la posicion del hash a ingresar en el array
-int hashFunction(int e, int esperados) {
+int hashFunctionDicc(int e, int esperados) {
 	int retorno = e % esperados;
 	return abs(retorno);
 }
 
 void agregar(DiccionarioInt& d, int e) {
-	int pos = hashFunction(e, d->esperados);
+	int pos = hashFunctionDicc(e, d->esperados);
 	if(!(pertenece(d,e))){
 		if (d->hashArray[pos] == NULL) {
 			NodoListaInt* nuevo = new NodoListaInt;
@@ -37,7 +37,7 @@ void agregar(DiccionarioInt& d, int e) {
 		}
 		else{
 			NodoListaInt* iter = d->hashArray[pos];
-			while (iter != NULL) {
+			while (iter->sig != NULL) {
 				iter = iter->sig;
 			}
 			NodoListaInt* nuevo = new NodoListaInt;
@@ -50,8 +50,9 @@ void agregar(DiccionarioInt& d, int e) {
 }
 
 void borrar(DiccionarioInt& d, int e) {
-	int pos = hashFunction(e, d->esperados);
-	if (d->hashArray[pos] != NULL) {
+	int pos = hashFunctionDicc(e, d->esperados);
+	
+	if (pertenece(d,e) && d->hashArray[pos] != NULL) {
 		NodoListaInt* aBorrar = NULL;
 		NodoListaInt* iter = d->hashArray[pos];
 		if (d->hashArray[pos]->dato == e) {
@@ -68,12 +69,13 @@ void borrar(DiccionarioInt& d, int e) {
 		}
 		delete aBorrar;
 		aBorrar = NULL;
+		d->cantidad--;
 	}
 }
 
 bool pertenece(DiccionarioInt d, int e) {
 	bool res = false;
-	int pos = hashFunction(e, d->esperados);
+	int pos = hashFunctionDicc(e, d->esperados);
 	if (d->hashArray[pos] != NULL) {
 		NodoListaInt* iter = d->hashArray[pos];
 		while (iter != NULL) {
@@ -90,11 +92,12 @@ bool pertenece(DiccionarioInt d, int e) {
 
 int elemento(DiccionarioInt d) {
 	assert(!esVacio(d));
-	for (int i = 0; i < d->esperados; i++) {
+	for (unsigned int i = 0; i < d->esperados; i++) {
 		if (d->hashArray[i] != NULL) {
-			return d->hashArray[i]->dato
+			return d->hashArray[i]->dato;
 		}
 	}
+	return NULL;
 }
 
 bool esVacio(DiccionarioInt d) {
@@ -107,18 +110,18 @@ unsigned int cantidadElementos(DiccionarioInt d) {
 
 DiccionarioInt clon(DiccionarioInt d) {
 	_cabezalDiccionarioInt* res = crearDiccionarioInt(d->esperados);
-	for (int i = 0; i < d->esperados; i++) {
+	for (unsigned int i = 0; i < d->esperados; i++) {
 		NodoListaInt* iter = d->hashArray[i];
 		while (iter != NULL){
 			agregar(res, iter->dato);
 			iter = iter->sig;
 		}
 	}
-	return NULL;
+	return res;
 }
 
 void destruir(DiccionarioInt& d) {
-	for (int i = 0; i < d->esperados; i++) {
+	for (unsigned int i = 0; i < d->esperados; i++) {
 		while (d->hashArray[i] != NULL) {
 			NodoListaInt* aBorrar = d->hashArray[i];
 			d->hashArray[i] = d->hashArray[i]->sig;

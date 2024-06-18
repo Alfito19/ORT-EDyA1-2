@@ -29,20 +29,20 @@ void encolar(ColaPrioridadInt& c, int e, int p) {
 	}
 	else {
 		NodoListaIntDobleDato* iter = c->primero;
-		while (iter->dato2 >= p) {
+		while (iter != NULL && iter->dato2 >= p) {
 			if (iter->dato2 == p) {
-				while (iter->dato2 == p) {
+				while (iter != NULL && iter->dato2 == p) {
 					iter = iter->sig;
 				}
-				nuevo->sig = iter->sig;
-				iter->sig = nuevo;
+				NodoListaIntDobleDato* aux = iter;
+				nuevo->sig = iter;
+				aux = nuevo;
 			}
 			else {
 				iter = iter->sig;
 			}
 		}
-		nuevo->sig = iter->sig;
-		iter->sig = nuevo;
+		iter = nuevo;
 	}
 	c->cantidad++;
 }
@@ -89,7 +89,7 @@ ColaPrioridadInt clon(ColaPrioridadInt c) {
 }
 
 void destruir(ColaPrioridadInt& c) {
-	while (c != NULL) {
+	while (c->primero != NULL) {
 		NodoListaIntDobleDato* aBorrar = c->primero;
 		c->primero = c->primero->sig;
 		delete aBorrar;
