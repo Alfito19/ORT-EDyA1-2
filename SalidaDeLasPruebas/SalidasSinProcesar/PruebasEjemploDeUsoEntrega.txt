@@ -123,7 +123,7 @@ La lista  no  contiene el elemento 32
 La lista  si  contiene el elemento 7
 
 -!-32::0-?-?-Imprimo la lista si contiene el elemento 7
-Clon de lista Ord: 7,-1,5,5
+Clon de lista Ord: -1,5,5,7
 
 
 -!-33::0-?-?-Clono e imprimo

@@ -252,18 +252,7 @@ Prueba 78: Imprimo la lista no contiene el elemento 32 -> OK
 -----------------------------------
 Prueba 79: Imprimo la lista si contiene el elemento 7 -> OK
 -----------------------------------
-Prueba 80: Clono e imprimo
- -> ERROR impresion incorrecta
-Se esperaba imprimir (el numero de linea fue agregado, no se debe imprimir): 
-1 : Clon de lista Ord: -1,5,5,7
-2 : 
-3 : 
-
-Se imprimio (el numero de linea fue agregado, no se debe imprimir): 
-(Los numeros de linea aparecen con : si coinciden y ! si no coinciden)
-1 ! Clon de lista Ord: 7,-1,5,5
-2 : 
-3 : 
+Prueba 80: Clono e imprimo -> OK
 -----------------------------------
 Prueba 81: Verifico que se modifique el clon y no el original -> OK
 -----------------------------------
@@ -280,7 +269,7 @@ Prueba 86: Imprimo la lista vacia no contiene el elemento 7 -> OK
 Prueba 87: Libero memoria -> OK
 ********* FIN PRUEBAS ListaOrdInt::*******
 
-PRUEBAS FUNCION PRUEBAS ListaOrdInt::                              HAY 1 PRUEBAS INCORRECTAS
+PRUEBAS FUNCION PRUEBAS ListaOrdInt::                              PRUEBAS CORRECTAS
 
 ********* INICIO PRUEBAS Diccionario*******
 -----------------------------------
@@ -402,5 +391,5 @@ PRUEBAS FUNCION PRUEBAS ColaPrioridadInt::                         PRUEBAS CORRE
 
 ----------------
 PRUEBAS FUNCIONES 
-PRUEBAS FUNCIONES RESULTADO ../PruebasEjemploDeUsoEntrega.txt   => CORRECTAS:  4 INCORRECTAS: 10
+PRUEBAS FUNCIONES RESULTADO ../PruebasEjemploDeUsoEntrega.txt   => CORRECTAS:  5 INCORRECTAS:  9
 PRUEBAS FUNCIONES 
