@@ -7,12 +7,11 @@ struct _cabezalColaPrioridadInt {
 	int cota;
 	int cantidad;
 	NodoListaIntDobleDato* primero;
-	NodoListaIntDobleDato* ultimo;
 };
 
 ColaPrioridadInt crearColaPrioridadInt(unsigned int cota) {
 	_cabezalColaPrioridadInt* res = new _cabezalColaPrioridadInt;
-	res->primero = res->ultimo = NULL;
+	res->primero = NULL;
 	res->cota = cota;
 	res->cantidad = 0;
 	return res;
@@ -65,7 +64,7 @@ bool esVacia(ColaPrioridadInt c) {
 }
 
 bool esLlena(ColaPrioridadInt c) {
-	return cantidadElementos(c) == c->cota;
+	return c->cantidad == c->cota;
 }
 
 unsigned int cantidadElementos(ColaPrioridadInt c) {

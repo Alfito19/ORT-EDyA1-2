@@ -79,16 +79,33 @@ bool pertenece(MultisetInt s, int e) {
 	return false;
 }
 
+//PRE
+//POS:
+int vecesElem(MultisetInt m, int elem) {
+	if (!pertenece(m, elem)) return 0;
+	NodoListaIntDobleDato* iter = m->elemento;
+	while (iter != NULL){
+		if (iter->dato1 == elem) {
+			return iter->dato2;
+		}
+		else iter = iter->sig;
+	}
+}
+
 MultisetInt unionConjuntos(MultisetInt s1, MultisetInt s2) {
 	MultisetInt res = crearMultisetInt();
 	NodoListaIntDobleDato* iter = s1->elemento;
 	while (iter != NULL) {
-		agregar(res, iter->dato1, iter->dato2);
+		if (vecesElem(s2, iter->dato1) <= iter->dato2) {
+			agregar(res, iter->dato1, iter->dato2);
+		}
 		iter = iter->sig;
 	}
 	iter = s2->elemento;
 	while (iter != NULL) {
-		agregar(res, iter->dato1, iter->dato2);
+		if (vecesElem(s1, iter->dato1) < iter->dato2) {
+			agregar(res, iter->dato1, iter->dato2);
+		}
 		iter = iter->sig;
 	}
 	return res;
@@ -160,6 +177,7 @@ bool contenidoEn(MultisetInt s1, MultisetInt s2) {
 }
 
 int elemento(MultisetInt s) {
+	assert(!esVacio(s));
 	return s->elemento->dato1;
 }
 

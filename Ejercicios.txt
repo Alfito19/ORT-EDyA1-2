@@ -33,7 +33,7 @@ NOTA: En estos ejercicios NO se puede acceder a la representación del TAD ni mod
 	constante en el peor caso. 
 	La implementacion no debe ser acotada.
 
-5)*	Implemente la funcion EstaContenida que dadas dos pilas: p1 y p2, de tipo PilaInt retorne true si y solo
+5)	Implemente la funcion EstaContenida que dadas dos pilas: p1 y p2, de tipo PilaInt retorne true si y solo
 	si todos los elementos de p1 se encuentran en p2.
 	Si hay valores repetidos en p1, entonces se tienen que encontrar como minimo la misma cantidad 
 	de repetidos de ese valor en p2.
@@ -70,14 +70,14 @@ NOTA: En estos ejercicios NO se puede acceder a la representación del TAD ni mod
 10)	Complete la implementacion MultisetIntImp del TAD MultisetInt especificado en el proyecto.
 	La implementacion no debe ser acotada.
 
-11)*	Dado un multiset, retorna una ListaOrdInt con los elementos que aparecen mas de una vez en el multiset.
+11)	Dado un multiset, retorna una ListaOrdInt con los elementos que aparecen mas de una vez en el multiset.
 	Ejemplo: 
 	Dado el multiset con los elementos (1,5,9,1,2,9,9) retorna la lista (1,9)
 	No se pueden usar TAD ni otras estructuras auxiliares aparte de MultisetInt y ListaOrdInt.
 
 	ListaOrdInt ObtenerRepetidos(MultisetInt m); 
 
-12)*	Dados dos multisets m1 y m2, retorna un nuevo multiset con los elementos que estan en m1 o en m2, pero no en los dos.
+12)	Dados dos multisets m1 y m2, retorna un nuevo multiset con los elementos que estan en m1 o en m2, pero no en los dos.
 	Los multisets parametro no deberan ser modificados. 
 	No se pueden usar TAD ni otras estructuras auxiliares aparte de MultisetInt.
 

@@ -62,7 +62,7 @@ PilaInt clon(PilaInt p) {
 }
 
 void destruir(PilaInt& p) {
-	while (p->pila != NULL) {
+	while (!esVacia(p)) {
 		pop(p);
 	}
 	delete p;

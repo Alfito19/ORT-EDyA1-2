@@ -22,7 +22,7 @@ void PruebasEjemploDeUsoEntrega::correrPruebaConcreta()
 	PruebasEjerciciosTAD();
 
 	pruebasPilaInt(this);
-	//pruebasListaPosInt(this);
+	pruebasListaPosInt(this);
 	pruebasColaInt(this);
 	pruebasListaOrdInt(this);
 	pruebasDiccionarioInt(this);

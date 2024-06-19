@@ -37,25 +37,37 @@ ListaOrdInt UnionListaOrd(ListaOrdInt l1, ListaOrdInt l2)
 bool EstaContenida(PilaInt p1, PilaInt p2)
 {
 	if (esVacia(p2)) return esVacia(p1);
-	if(cantidadElementos(p1) < cantidadElementos(p2)){
+	if (cantidadElementos(p1) > cantidadElementos(p2)) {
 		return false;
 	}
-	PilaInt p1Aux = p1;
+	PilaInt p1Aux = clon(p1);
+	PilaInt p2Aux = clon(p2);
+	PilaInt pilaElems = crearPilaInt();
+
 	while (!esVacia(p1Aux)) {
-		PilaInt p2Aux = p2;
 		bool esta = false;
-		while (!esta || !esVacia(p2Aux)) {
+		while ((!esta) && !esVacia(p2Aux)) {
 			if (top(p1Aux) == top(p2Aux)) {
 				pop(p1Aux);
+				pop(p2Aux);
 				esta = true;
 			}
-			else pop(p2Aux);
+			else {
+				push(pilaElems, top(p2Aux));
+				pop(p2Aux);
+			}
 		}
-		pop(p1Aux);
-		if (esVacia(p2Aux)) {
-			delete p2Aux;
-			delete p1Aux;
+		if (esVacia(p2Aux) && !esta) {
+			destruir(p2Aux);
+			destruir(pilaElems);
+			destruir(p1Aux);
 			return false;
+		}
+		else {
+			while (!esVacia(pilaElems)) {
+				push(p2Aux, top(pilaElems));
+				pop(pilaElems);
+			}
 		}
 	}
 	return true;
@@ -64,18 +76,57 @@ bool EstaContenida(PilaInt p1, PilaInt p2)
 
 ListaOrdInt ObtenerRepetidos(MultisetInt m) 
 {
-	//IMPLEMENTAR SOLUCION
-	return NULL;
+	ListaOrdInt res = crearListaOrdInt();
+	MultisetInt multiClon = clon(m);
+	while (!esVacio(multiClon)) {
+		int elem = elemento(multiClon);
+		borrar(multiClon, elem);
+		if (pertenece(multiClon, elem) && !existe(res,elem)) agregar(res, elem);
+	}
+	return res;
 }
 
 MultisetInt Xor(MultisetInt m1, MultisetInt m2)
 {
-	//IMPLEMENTAR SOLUCION
-	return NULL;
+	MultisetInt res = crearMultisetInt();
+	MultisetInt m1Menosm2 = diferenciaConjuntos(m1, m2);
+	MultisetInt m2Menosm1 = diferenciaConjuntos(m2, m1);
+	res = unionConjuntos(m1Menosm2, m2Menosm1);
+	return res;
 }
 
 ColaPrioridadInt MenorPrioridad(ColaPrioridadInt c) {
-	//IMPLEMENTAR SOLUCION
-	return NULL;
+	if (esVacia(c)) return crearColaPrioridadInt(0);
+	ColaPrioridadInt clonColaPrio = clon(c);
+	int minimoPrio = principioPrioridad(clonColaPrio);
+	while (!esVacia(clonColaPrio)) {
+		if (principioPrioridad(clonColaPrio) < minimoPrio) {
+			minimoPrio = principioPrioridad(clonColaPrio);
+		}
+		desencolar(clonColaPrio);
+	}
+
+	destruir(clonColaPrio);
+	clonColaPrio = clon(c);
+	int countMinimoPrio = 0;
+	while (!esVacia(clonColaPrio)) {
+		if (principioPrioridad(clonColaPrio) == minimoPrio) {
+			countMinimoPrio++;
+		}
+		desencolar(clonColaPrio);
+	}
+
+	destruir(clonColaPrio);
+	ColaPrioridadInt res = crearColaPrioridadInt(countMinimoPrio);
+	clonColaPrio = clon(c);
+	while (!esVacia(clonColaPrio)) {
+		if (principioPrioridad(clonColaPrio) == minimoPrio) {
+			encolar(res, principio(clonColaPrio), principioPrioridad(clonColaPrio));
+		}
+		desencolar(clonColaPrio);
+	}
+	destruir(clonColaPrio);
+
+	return res;
 }
 
