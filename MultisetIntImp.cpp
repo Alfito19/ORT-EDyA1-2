@@ -17,118 +17,146 @@ MultisetInt crearMultisetInt() {
 
 
 void agregar(MultisetInt& s, int e, unsigned int ocurrencias){
+	NodoListaIntDobleDato* iter = s->elemento;
+	NodoListaIntDobleDato* anterior = NULL;
+	while (iter != NULL) {
+		if (iter->dato1 == e) {
+			iter->dato2 += ocurrencias;
+			s->cantidad += ocurrencias;
+			return;
+		}
+		anterior = iter;
+		iter = iter->sig;
+	}
 	NodoListaIntDobleDato* nuevo = new NodoListaIntDobleDato;
 	nuevo->dato1 = e;
 	nuevo->dato2 = ocurrencias;
 	nuevo->sig = NULL;
-	bool yaIngresado = false;
-	if (s->elemento == NULL) {
+	if (anterior == NULL) {
 		s->elemento = nuevo;
 	}
 	else {
-		NodoListaIntDobleDato* iter = s->elemento;
-		while (!yaIngresado && iter->sig != NULL && iter->dato1 >= e) {
-			if (iter->dato1 == e) {
-				iter->dato2 += ocurrencias; // no me queda claro si le suma las ocurrencias, las reemplaza o suma uno
-				yaIngresado = true;
-			}
-			iter = iter->sig;
-		}
-		if (!yaIngresado) {
-			nuevo->sig = iter->sig;
-			iter->sig = nuevo;
-			s->cantidad++;
-		}
-		else delete nuevo;
+		anterior->sig = nuevo;
 	}
+	s->cantidad += ocurrencias;
 }
 
 void borrar(MultisetInt& s, int e) {
 	NodoListaIntDobleDato* iter = s->elemento;
-	while (iter != NULL && iter->dato1 >= e) {
+	NodoListaIntDobleDato* anterior = NULL;
+
+	while (iter != NULL) {
 		if (iter->dato1 == e) {
-			NodoListaIntDobleDato* aBorrar = iter;
-			iter = iter->sig;
-			delete aBorrar;
-			aBorrar = NULL;
-			s->cantidad--;
+			if (iter->dato2 > 1) {
+				iter->dato2--;
+				s->cantidad--;
+			}
+			else {
+				if (anterior == NULL) {
+					s->elemento = iter->sig;
+				}
+				else {
+					anterior->sig = iter->sig;
+				}
+				delete iter;
+				s->cantidad--;
+			}
+			return;
 		}
+		anterior = iter;
 		iter = iter->sig;
 	}
 }
 
 bool pertenece(MultisetInt s, int e) {
-	while (s->elemento != NULL) {
-		if (s->elemento->dato1 == e) {
+	NodoListaIntDobleDato* iter = s->elemento;
+	while (iter != NULL) {
+		if (iter->dato1 == e) {
 			return true;
 		}
-		s->elemento = s->elemento->sig;
+		iter = iter->sig;
 	}
 	return false;
 }
 
 MultisetInt unionConjuntos(MultisetInt s1, MultisetInt s2) {
-	_cabezalMultisetInt* res = crearMultisetInt();
-	while (s1->elemento != NULL) {
-		agregar(res, s1->elemento->dato1, s1->elemento->dato2);
-		s1->elemento = s1->elemento->sig;
+	MultisetInt res = crearMultisetInt();
+	NodoListaIntDobleDato* iter = s1->elemento;
+	while (iter != NULL) {
+		agregar(res, iter->dato1, iter->dato2);
+		iter = iter->sig;
 	}
-	while (s2->elemento != NULL) {
-		agregar(res, s2->elemento->dato1, s2->elemento->dato2);
-		s2->elemento = s2->elemento->sig;
+	iter = s2->elemento;
+	while (iter != NULL) {
+		agregar(res, iter->dato1, iter->dato2);
+		iter = iter->sig;
 	}
 	return res;
 }
 
 MultisetInt interseccionConjuntos(MultisetInt s1, MultisetInt s2) {
-	_cabezalMultisetInt* res = crearMultisetInt();
-	while (s1->elemento != NULL && s2->elemento != NULL) {
-		if (s1->elemento->dato1 == s2->elemento->dato1) {
-			agregar(res, s1->elemento->dato1, s1->elemento->dato2);
-			s1->elemento = s1->elemento->sig;
-			s2->elemento = s2->elemento->sig;
+	MultisetInt res = crearMultisetInt();
+	NodoListaIntDobleDato* iter1 = s1->elemento;
+	NodoListaIntDobleDato* iter2;
+
+	while (iter1 != NULL) {
+		iter2 = s2->elemento;
+		while (iter2 != NULL) {
+			if (iter1->dato1 == iter2->dato1) {
+				agregar(res, iter1->dato1, std::min(iter1->dato2, iter2->dato2));
+			}
+			iter2 = iter2->sig;
 		}
-		else if (s1->elemento->dato1 > s2->elemento->dato1) {
-			s2->elemento = s2->elemento->sig;
-		}
-		else if (s1->elemento->dato1 < s2->elemento->dato1) {
-			s1->elemento = s1->elemento->sig;
-		}
+		iter1 = iter1->sig;
 	}
 	return res;
 }
 
 MultisetInt diferenciaConjuntos(MultisetInt s1, MultisetInt s2) {
-	_cabezalMultisetInt* res = crearMultisetInt();
-	while (s1->elemento != NULL && s2->elemento != NULL) {
-		if (s1->elemento->dato1 == s2->elemento->dato1) {
-			s1->elemento = s1->elemento->sig;
-			s2->elemento = s2->elemento->sig;
+	MultisetInt res = crearMultisetInt();
+	NodoListaIntDobleDato* iter1 = s1->elemento;
+
+	while (iter1 != NULL) {
+		NodoListaIntDobleDato* iter2 = s2->elemento;
+		bool found = false;
+		while (iter2 != NULL) {
+			if (iter1->dato1 == iter2->dato1) {
+				if (iter1->dato2 > iter2->dato2) {
+					agregar(res, iter1->dato1, iter1->dato2 - iter2->dato2);
+				}
+				found = true;
+				break;
+			}
+			iter2 = iter2->sig;
 		}
-		else if (s1->elemento->dato1 > s2->elemento->dato1) {
-			s2->elemento = s2->elemento->sig;
+		if (!found) {
+			agregar(res, iter1->dato1, iter1->dato2);
 		}
-		else if (s1->elemento->dato1 < s2->elemento->dato1) {
-			agregar(res, s1->elemento->dato1, s1->elemento->dato2);
-			s1->elemento = s1->elemento->sig;
-		}
-	}
-	while (s1->elemento != NULL) {
-		agregar(res, s1->elemento->dato1, s1->elemento->dato2);
-		s1->elemento = s1->elemento->sig;
-	}
-	while (s2->elemento != NULL) {
-		s2->elemento = s2->elemento->sig;
+		iter1 = iter1->sig;
 	}
 	return res;
 }
 
 bool contenidoEn(MultisetInt s1, MultisetInt s2) {
-	while (s1->elemento != NULL && s2->elemento != NULL && s1->elemento->dato1 == s2->elemento->dato1) {
-		s1->elemento = s1->elemento->sig;
-		s2->elemento = s2->elemento->sig;
+	NodoListaIntDobleDato* iter1 = s1->elemento;
+	NodoListaIntDobleDato* iter2;
+
+	while (iter1 != NULL) {
+		iter2 = s2->elemento;
+		bool found = false;
+		while (iter2 != NULL) {
+			if (iter1->dato1 == iter2->dato1 && iter1->dato2 <= iter2->dato2) {
+				found = true;
+				break;
+			}
+			iter2 = iter2->sig;
+		}
+		if (!found) {
+			return false;
+		}
+		iter1 = iter1->sig;
 	}
-	return s1->elemento == NULL && s2->elemento == NULL;
+	return true;
 }
 
 int elemento(MultisetInt s) {
@@ -156,9 +184,10 @@ void destruir(MultisetInt& s) {
 
 MultisetInt clon(MultisetInt s) {
 	_cabezalMultisetInt* res = crearMultisetInt();
-	while (s->elemento != NULL) {
-		agregar(res, s->elemento->dato1, s->elemento->dato2);
-		s->elemento = s->elemento->sig;
+	NodoListaIntDobleDato* iter = s->elemento;
+	while (iter != NULL) {
+		agregar(res, iter->dato1, iter->dato2);
+		iter = iter->sig;
 	}
 	return res;
 }

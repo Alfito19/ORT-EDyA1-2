@@ -23,18 +23,20 @@ void agregar(SetInt& s, int e) {
 	bool yaIngresado = false;
 	if (s->elemento == NULL) {
 		s->elemento = nuevo;
+		s->cantidad++;
 	}
 	else {
 		NodoListaInt* iter = s->elemento;
-		while (iter->dato > e || iter->sig != NULL) {
+		NodoListaInt* anterior = NULL;
+		while (iter != NULL) {
 			if (iter->dato == e){
 				yaIngresado = true;
 			}
+			anterior = iter;
 			iter = iter->sig;
 		}
 		if (!yaIngresado) {
-			nuevo->sig = iter->sig;
-			iter->sig = nuevo;
+			anterior->sig = nuevo;
 			s->cantidad++;
 		}
 		else delete nuevo;
@@ -43,90 +45,84 @@ void agregar(SetInt& s, int e) {
 
 void borrar(SetInt& s, int e) {
 	NodoListaInt* iter = s->elemento;
-	while (iter->dato > e || iter->sig != NULL) {
+	NodoListaInt* anterior = NULL;
+
+	while (iter != NULL) {
 		if (iter->dato == e) {
-			NodoListaInt* aBorrar = iter;
-			iter = iter->sig;
-			delete aBorrar;
-			aBorrar = NULL;
+			if (anterior == NULL) {
+				s->elemento = iter->sig;
+			}
+			else {
+				anterior->sig = iter->sig;
+			}
+			delete iter;
 			s->cantidad--;
+			return;
 		}
+		anterior = iter;
 		iter = iter->sig;
 	}
 }
 
 bool pertenece(SetInt s, int e) {
-	while (s->elemento != NULL) {
-		if (s->elemento->dato == e) {
+	NodoListaInt* iter = s->elemento;
+	while (iter != NULL) {
+		if (iter->dato == e) {
 			return true;
 		}
-		s->elemento = s->elemento->sig;
+		iter = iter->sig;
 	}
 	return false;
 }
 
 SetInt unionConjuntos(SetInt s1, SetInt s2) {
-	_cabezalSetInt* res = crearSetInt();
-	while (s1->elemento != NULL) {
-		agregar(res, s1->elemento->dato);
-		s1->elemento = s1->elemento->sig;
+	SetInt res = crearSetInt();
+	NodoListaInt* iter = s1->elemento;
+	while (iter != NULL) {
+		agregar(res, iter->dato);
+		iter = iter->sig;
 	}
-	while (s2->elemento != NULL) {
-		agregar(res, s2->elemento->dato);
-		s2->elemento = s2->elemento->sig;
+	iter = s2->elemento;
+	while (iter != NULL) {
+		agregar(res, iter->dato);
+		iter = iter->sig;
 	}
 	return res;
 }
 
 SetInt interseccionConjuntos(SetInt s1, SetInt s2) {
-	_cabezalSetInt* res = crearSetInt();
-	while (s1->elemento != NULL && s2->elemento != NULL) {
-		if (s1->elemento->dato == s2->elemento->dato) {
-			agregar(res, s1->elemento->dato);
-			s1->elemento = s1->elemento->sig;
-			s2->elemento = s2->elemento->sig;
+	SetInt res = crearSetInt();
+	NodoListaInt* iter = s1->elemento;
+	while (iter != NULL) {
+		if (pertenece(s2, iter->dato)) {
+			agregar(res, iter->dato);
 		}
-		else if (s1->elemento->dato > s2->elemento->dato) {
-			s2->elemento = s2->elemento->sig;
-		}
-		else if (s1->elemento->dato < s2->elemento->dato) {
-			s1->elemento = s1->elemento->sig;
-		}
+		iter = iter->sig;
 	}
 	return res;
 }
 
 SetInt diferenciaConjuntos(SetInt s1, SetInt s2) {
-	_cabezalSetInt* res = crearSetInt();
-	while (s1->elemento != NULL && s2->elemento != NULL) {
-		if (s1->elemento->dato == s2->elemento->dato) {
-			s1->elemento = s1->elemento->sig;
-			s2->elemento = s2->elemento->sig;
+	SetInt res = crearSetInt();
+	NodoListaInt* iter = s1->elemento;
+	while (iter != NULL) {
+		if (!pertenece(s2, iter->dato)) {
+			agregar(res, iter->dato);
 		}
-		else if (s1->elemento->dato > s2->elemento->dato) {
-			s2->elemento = s2->elemento->sig;
-		}
-		else if (s1->elemento->dato < s2->elemento->dato) {
-			agregar(res, s1->elemento->dato);
-			s1->elemento = s1->elemento->sig;
-		}
-	}
-	while (s1->elemento != NULL) {
-		agregar(res, s1->elemento->dato);
-		s1->elemento = s1->elemento->sig;
-	}
-	while (s2->elemento != NULL) {
-		s2->elemento = s2->elemento->sig;
+		iter = iter->sig;
 	}
 	return res;
 }
 
 bool contenidoEn(SetInt s1, SetInt s2) {
-	while (s1->elemento != NULL && s2->elemento != NULL && s1->elemento->dato == s2->elemento->dato) {
-		s1->elemento = s1->elemento->sig;
-		s2->elemento = s2->elemento->sig;
+	NodoListaInt* iter = s1->elemento;
+	while (iter != NULL) {
+		if (!pertenece(s2, iter->dato)) {
+			return false;
+		}
+		iter = iter->sig;
 	}
-	return s1->elemento == NULL && s2->elemento == NULL;
+	return true;
 }
 
 int elemento(SetInt s) {
@@ -154,9 +150,10 @@ void destruir(SetInt& s) {
 
 SetInt clon(SetInt s) {
 	_cabezalSetInt* res = crearSetInt();
-	while (s->elemento != NULL) {
-		agregar(res, s->elemento->dato);
-		s->elemento = s->elemento->sig;
+	NodoListaInt* iter = s->elemento;
+	while (iter != NULL) {
+		agregar(res, iter->dato);
+		iter = iter->sig;
 	}
 	return res;
 }

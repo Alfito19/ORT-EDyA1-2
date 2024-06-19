@@ -1,64 +1,212 @@
 #include "ListaOrdInt.h"
-
+#include "Definiciones.h"
 #ifdef LISTA_ORD_INT_IMP_2
 
 struct _cabezalListaOrdInt {
-	// NO IMPLEMENTADO
+	NodoABInt* ab;
+	int cantidad;
+	int max;
+	int min;
 };
 
 ListaOrdInt crearListaOrdInt() {
-	// NO IMPLEMENTADO
-	return NULL;
+	ListaOrdInt nuevo = new _cabezalListaOrdInt;
+	nuevo->ab = NULL;
+	nuevo->cantidad = 0;
+	nuevo->max = INT_MIN;
+	nuevo->min = INT_MAX;
+	return nuevo;
+}
+
+//PRE
+//POS
+void agregarABB(NodoABInt*& abb, int dato) {
+	if (abb == NULL || abb->dato == dato) {
+		NodoABInt* nuevo = new NodoABInt;
+		nuevo->dato = dato;
+		if (abb == NULL) {
+			nuevo->der = nuevo->izq = NULL;
+			abb = nuevo;
+		}
+		else if (abb->dato == dato) {
+			nuevo->der = abb->der;
+			nuevo->izq = NULL;
+			abb->der = nuevo;
+		}
+	}
+	else {
+		if (dato > abb->dato) {
+			agregarABB(abb->der, dato);
+		}
+		else if (dato < abb->dato) {
+			agregarABB(abb->izq, dato);
+		}
+	}
 }
 
 void agregar(ListaOrdInt& l, int e) {
-	// NO IMPLEMENTADO
+	agregarABB(l->ab, e);
+	l->cantidad++;
+	if (e > l->max) l->max = e;
+	if (e < l->min) l->min = e;
 }
 
+
+
 void borrarMinimo(ListaOrdInt& l) {
-	// NO IMPLEMENTADO
+	borrar(l, l->min);
 }
 
 void borrarMaximo(ListaOrdInt& l) {
-	// NO IMPLEMENTADO
+	borrar(l, l->max);
+}
+
+//PRE
+//POS
+void borrarABB(NodoABInt*& abb, int dato) {
+	if (abb->dato == dato) {
+		NodoABInt* aBorrar = abb;
+		if (abb->izq != NULL && abb->der != NULL) {
+			NodoABInt* derecha = abb->der;
+			abb = abb->izq;
+			NodoABInt* iter = abb;
+			while (iter->der != NULL) {
+				iter = iter->der;
+			}
+			iter->der = derecha;
+		}
+		else if (abb->der == NULL) {
+			abb = abb->izq;
+		}
+		else if (abb->izq == NULL) {
+			abb = abb->der;
+		}
+		else {
+			abb = NULL;
+		}
+		delete aBorrar;
+		aBorrar = NULL;
+	}
+	else {
+		if (dato > abb->dato) {
+			borrarABB(abb->der, dato);
+		}
+		else if (dato < abb->dato) {
+			borrarABB(abb->izq, dato);
+		}
+	}
 }
 
 void borrar(ListaOrdInt& l, int e) {
-	// NO IMPLEMENTADO
+	if(existe(l,e)){
+		borrarABB(l->ab, e);
+		l->cantidad--;
+	}
+	if(l->ab != NULL){
+		if (e == l->max) {
+			NodoABInt* iter = l->ab;
+			while (iter->der != NULL) {
+				iter = iter->der;
+			}
+			l->min = iter->dato;
+		}
+		if (e == l->min) {
+			NodoABInt* iter = l->ab;
+			while (iter->izq != NULL) {
+				iter = iter->izq;
+			}
+			l->min = iter->dato;
+		}
+	}
+	else {
+		l->cantidad = 0;
+		l->max = INT_MIN;
+		l->min = INT_MAX;
+	}
 }
 
 int minimo(ListaOrdInt l) {
-	// NO IMPLEMENTADO
-	return 0;
+	return l->min;
 }
 
 int maximo(ListaOrdInt l) {
-	// NO IMPLEMENTADO
-	return 0;
+	return l->max;
+}
+
+//PRE
+//POS
+bool buscarEnABB(NodoABInt* nodo, int e) {
+	if (nodo == NULL) {
+		return false;
+	}
+	if (nodo->dato == e) {
+		return true;
+	}
+	if (e < nodo->dato) {
+		return buscarEnABB(nodo->izq, e);
+	}
+	else {
+		return buscarEnABB(nodo->der, e);
+	}
 }
 
 bool existe(ListaOrdInt l, int e) {
-	// NO IMPLEMENTADO
-	return false;
+	return buscarEnABB(l->ab,e);
 }
 
+
+
 bool esVacia(ListaOrdInt l) {
-	// NO IMPLEMENTADO
-	return true;
+	return l->cantidad == 0;
 }
 
 unsigned int cantidadElementos(ListaOrdInt l) {
-	// NO IMPLEMENTADO
-	return 0;
+	return l->cantidad;
+}
+
+//PRE
+//POS
+NodoABInt* clonarABB(NodoABInt* nodo) {
+	if (nodo == NULL) {
+		return NULL;
+	}
+
+	NodoABInt* nuevoNodo = new NodoABInt;
+	nuevoNodo->dato = nodo->dato;
+	nuevoNodo->izq = clonarABB(nodo->izq);
+	nuevoNodo->der = clonarABB(nodo->der);
+	return nuevoNodo;
 }
 
 ListaOrdInt clon(ListaOrdInt l) {
-	// NO IMPLEMENTADO
-	return NULL;
+	if (l == NULL) {
+		return NULL;
+	}
+	ListaOrdInt nuevaLista = new _cabezalListaOrdInt;
+	nuevaLista->cantidad = l->cantidad;
+	nuevaLista->max = l->max;
+	nuevaLista->min = l->min;
+	nuevaLista->ab = clonarABB(l->ab);
+
+	return nuevaLista;
+}
+
+void destruirABB(NodoABInt* nodo) {
+	if (nodo == NULL) {
+		return;
+	}
+	destruirABB(nodo->izq);
+	destruirABB(nodo->der);
+	delete nodo;
 }
 
 void destruir(ListaOrdInt& l) {
-	// NO IMPLEMENTADO
+	if (l == NULL) {
+		return;
+	}
+	destruirABB(l->ab);
+	delete l;
+	l = NULL;
 }
 
 

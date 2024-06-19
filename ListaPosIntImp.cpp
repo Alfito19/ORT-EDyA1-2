@@ -3,52 +3,62 @@
 #ifdef LISTA_POS_INT_IMP
 
 struct _cabezalListaPosInt {
-	//IMPLEMENTAR SOLUCION
+	int* listaPos;
+	int cantidad;
+	int maxPos;
 };
 
 ListaPosInt crearListaPosInt()
 {
-	//IMPLEMENTAR SOLUCION
-	return NULL;
+	_cabezalListaPosInt* nuevo = new _cabezalListaPosInt;
+	nuevo->listaPos = new int[1];
+	for(int i = 0; i < 1; i++){
+		nuevo->listaPos[i] = NULL;
+	}
+	nuevo->maxPos = 0;
+	nuevo->cantidad = 0;
+	return nuevo;
 }
 
 void agregar(ListaPosInt& l, int e, unsigned int pos)
 {
-	//IMPLEMENTAR SOLUCION
+
 }
 
 void borrar(ListaPosInt& l, unsigned int pos)
 {
-	//IMPLEMENTAR SOLUCION
+	l->listaPos[pos] = 0;
+	l->cantidad--;
 }
 
 int elemento(ListaPosInt l, unsigned int pos)
 {
-	//IMPLEMENTAR SOLUCION
-	return 0;
+	return l->listaPos[pos];
 }
 
 bool esVacia(ListaPosInt l)
 {
-	//IMPLEMENTAR SOLUCION
-	return true;
+	return l->cantidad == 0;
 }
 
 unsigned int cantidadElementos(ListaPosInt l)
 {
-	//IMPLEMENTAR SOLUCION
-	return 0;
+	return l->cantidad;
 }
 
 ListaPosInt clon(ListaPosInt l)
 {
-	//IMPLEMENTAR SOLUCION
-	return NULL;
+	_cabezalListaPosInt* clon = crearListaPosInt();
+	for (int i = 0; i < l->maxPos; i++) {
+		agregar(clon, l->listaPos[i], i);
+	}
+	return clon;
 }
 
 void destruir(ListaPosInt& l)
 {
-	//IMPLEMENTAR SOLUCION
+	delete[] l->listaPos;
+	delete l;
 }
 
 

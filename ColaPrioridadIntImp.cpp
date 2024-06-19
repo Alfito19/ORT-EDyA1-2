@@ -20,29 +20,23 @@ ColaPrioridadInt crearColaPrioridadInt(unsigned int cota) {
 
 void encolar(ColaPrioridadInt& c, int e, int p) {
 	assert(!esLlena(c));
+
 	NodoListaIntDobleDato* nuevo = new NodoListaIntDobleDato;
 	nuevo->dato1 = e;
 	nuevo->dato2 = p;
 	nuevo->sig = NULL;
-	if (c->primero == NULL) {
+
+	if (c->primero == NULL || c->primero->dato2 < p) {
+		nuevo->sig = c->primero;
 		c->primero = nuevo;
 	}
 	else {
 		NodoListaIntDobleDato* iter = c->primero;
-		while (iter != NULL && iter->dato2 >= p) {
-			if (iter->dato2 == p) {
-				while (iter != NULL && iter->dato2 == p) {
-					iter = iter->sig;
-				}
-				NodoListaIntDobleDato* aux = iter;
-				nuevo->sig = iter;
-				aux = nuevo;
-			}
-			else {
-				iter = iter->sig;
-			}
+		while (iter->sig != NULL && iter->sig->dato2 >= p) {
+			iter = iter->sig;
 		}
-		iter = nuevo;
+		nuevo->sig = iter->sig;
+		iter->sig = nuevo;
 	}
 	c->cantidad++;
 }

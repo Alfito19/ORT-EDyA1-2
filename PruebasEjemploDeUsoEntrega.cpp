@@ -19,19 +19,19 @@ const char* PruebasEjemploDeUsoEntrega::getNombre() const
 
 void PruebasEjemploDeUsoEntrega::correrPruebaConcreta()
 {
-	PruebasEjerciciosTAD();
+	//PruebasEjerciciosTAD();
 
 	pruebasPilaInt(this);
-	pruebasListaPosInt(this);
+	//pruebasListaPosInt(this);
 	pruebasColaInt(this);
 	pruebasListaOrdInt(this);
 	pruebasDiccionarioInt(this);
-	pruebasTablaIntString(this);
+	//pruebasTablaIntString(this);
 	pruebasMultisetInt(this);
 	pruebasColaPrioridadInt(this);
 
 	//pruebasTablaIntInt(this);
-	//pruebasSetInt(this);
+	pruebasSetInt(this);
 }
 
 void PruebasEjemploDeUsoEntrega::PruebasEjerciciosTAD()

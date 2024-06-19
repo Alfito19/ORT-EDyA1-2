@@ -65,6 +65,9 @@ void borrar(DiccionarioInt& d, int e) {
 					aBorrar = iter->sig;
 					iter->sig = iter->sig->sig;
 				}
+				else {
+					iter = iter->sig;
+				}
 			}
 		}
 		delete aBorrar;
@@ -79,7 +82,7 @@ bool pertenece(DiccionarioInt d, int e) {
 	if (d->hashArray[pos] != NULL) {
 		NodoListaInt* iter = d->hashArray[pos];
 		while (iter != NULL) {
-			if (d->hashArray[pos]->dato == e) {
+			if (iter->dato == e) {
 				return true;
 			}
 			else{

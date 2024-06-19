@@ -41,6 +41,7 @@ void desencolar(ColaInt& c) {
 	c->primero = c->primero->sig;
 	delete aBorrar;
 	aBorrar = NULL;
+	c->cantidad--;
 }
 
 bool esVacia(ColaInt c) {	

@@ -46,9 +46,15 @@ bool esVacia(PilaInt p) {
 }
 
 PilaInt clon(PilaInt p) {
+	_cabezalPilaInt* clonPilaAux = crearPilaInt();
 	_cabezalPilaInt* clonPila = crearPilaInt();
 	NodoListaInt* iter = p->pila;
-	for(int i = 0; i < p->cantidad;i++){
+	for(unsigned int i = 0; i < p->cantidad;i++){
+		push(clonPilaAux, iter->dato);
+		iter = iter->sig;
+	}
+	iter = clonPilaAux->pila;
+	for (unsigned int i = 0; i < p->cantidad; i++) {
 		push(clonPila, iter->dato);
 		iter = iter->sig;
 	}
@@ -57,10 +63,7 @@ PilaInt clon(PilaInt p) {
 
 void destruir(PilaInt& p) {
 	while (p->pila != NULL) {
-		NodoListaInt* aBorrar = p->pila;
-		p->pila = p->pila->sig;
-		delete aBorrar;
-		aBorrar = NULL;
+		pop(p);
 	}
 	delete p;
 	p = NULL;
