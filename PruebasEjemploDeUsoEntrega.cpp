@@ -19,7 +19,7 @@ const char* PruebasEjemploDeUsoEntrega::getNombre() const
 
 void PruebasEjemploDeUsoEntrega::correrPruebaConcreta()
 {
-	//PruebasEjerciciosTAD();
+	PruebasEjerciciosTAD();
 
 	pruebasPilaInt(this);
 	//pruebasListaPosInt(this);

@@ -118,18 +118,18 @@ MultisetInt diferenciaConjuntos(MultisetInt s1, MultisetInt s2) {
 
 	while (iter1 != NULL) {
 		NodoListaIntDobleDato* iter2 = s2->elemento;
-		bool found = false;
+		bool esta = false;
 		while (iter2 != NULL) {
 			if (iter1->dato1 == iter2->dato1) {
 				if (iter1->dato2 > iter2->dato2) {
 					agregar(res, iter1->dato1, iter1->dato2 - iter2->dato2);
 				}
-				found = true;
+				esta = true;
 				break;
 			}
 			iter2 = iter2->sig;
 		}
-		if (!found) {
+		if (!esta) {
 			agregar(res, iter1->dato1, iter1->dato2);
 		}
 		iter1 = iter1->sig;

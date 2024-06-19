@@ -41,8 +41,6 @@ void agregar(ListaOrdInt& l, int e) {
 	if (e < l->min) l->min = e;
 }
 
-
-
 void borrarMinimo(ListaOrdInt& l) {
 	borrar(l, l->min);
 }
@@ -134,7 +132,6 @@ bool buscarEnABB(NodoABInt* nodo, int e) {
 bool existe(ListaOrdInt l, int e) {
 	return buscarEnABB(l->ab,e);
 }
-
 
 
 bool esVacia(ListaOrdInt l) {

@@ -1,2 +1,10 @@
-﻿  ListaOrdIntImp2.cpp
+﻿  Ejercicios.cpp
+C:\Users\alfos\OneDrive\Documents\GitHub\ORT-EDyA1-2\Ejercicios.cpp(56,4): warning C4150: deletion of pointer to incomplete type '_cabezalPilaInt'; no destructor called
+  C:\Users\alfos\OneDrive\Documents\GitHub\ORT-EDyA1-2\PilaInt.h(6,8):
+  see declaration of '_cabezalPilaInt'
+  
+C:\Users\alfos\OneDrive\Documents\GitHub\ORT-EDyA1-2\Ejercicios.cpp(57,4): warning C4150: deletion of pointer to incomplete type '_cabezalPilaInt'; no destructor called
+  C:\Users\alfos\OneDrive\Documents\GitHub\ORT-EDyA1-2\PilaInt.h(6,8):
+  see declaration of '_cabezalPilaInt'
+  
   aFramework.vcxproj -> C:\Users\alfos\OneDrive\Documents\GitHub\ORT-EDyA1-2\Debug\aFramework.exe
